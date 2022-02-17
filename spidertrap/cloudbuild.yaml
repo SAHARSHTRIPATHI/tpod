@@ -1,0 +1,9 @@
+# Cloud Run Build YAML spidertrap
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      ["build", "-t", "gcr.io/traced-staging/spidertrap:latest", "."]
+    dir: 'tokens/spidertrap'
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/traced-staging/spidertrap:latest"]
+    dir: 'tokens/spidertrap'
