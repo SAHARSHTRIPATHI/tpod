@@ -1,0 +1,9 @@
+# Cloud Run Build YAML cowrie
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      ["build", "-t", "gcr.io/traced-staging/cowrie:latest", "."]
+    dir: 'tokens/cowrie'
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/traced-staging/cowrie:latest"]
+    dir: 'tokens/cowrie'
